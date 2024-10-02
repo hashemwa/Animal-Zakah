@@ -56,7 +56,7 @@ export function SheepZakah() {
 
     const numericValue = parseInt(value.replace(/,/g, ""));
 
-    if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 10000000) {
+    if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 1000000000) {
       setNumSheep(formatNumberWithCommas(numericValue));
       setErrorMessage("");
     } else if (value === "") {
@@ -70,7 +70,7 @@ export function SheepZakah() {
     if (isNaN(parsedNumSheep) || parsedNumSheep < 0) {
       setZakahResult("");
       setErrorMessage("Enter a valid number of sheep!");
-    } else if (parsedNumSheep >= 10000000) {
+    } else if (parsedNumSheep >= 1000000000) {
       setZakahResult("No one has that many sheep...");
       setErrorMessage("");
     } else {
@@ -124,8 +124,8 @@ export function SheepZakah() {
           mt: 2,
           width: "80%",
           textAlign: "center",
-          height: "100%",
-          maxHeight: "170px",
+          height: "auto",
+          minHeight: "100px",
           backgroundColor: "#006766",
           borderRadius: "10px",
           color: "white",

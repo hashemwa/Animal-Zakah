@@ -86,7 +86,7 @@ export function CowsZakah() {
     const numericValue = parseInt(value.replace(/,/g, ""));
 
 
-    if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 10000000) {
+    if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 1000000000) {
       setNumCows(formatNumberWithCommas(numericValue)); 
       setErrorMessage("");
     } else if (value === "") {
@@ -101,7 +101,7 @@ export function CowsZakah() {
   
       setZakahResult(""); 
       setErrorMessage("Enter a valid number of cows!");
-    } else if (parsedNumCows >= 10000000) {
+    } else if (parsedNumCows >= 1000000000) {
       setZakahResult("No one has that many cows..."); 
       setErrorMessage("");
     } else {
@@ -155,8 +155,8 @@ export function CowsZakah() {
           mt: 2,
           width: "80%",
           textAlign: "center",
-          height: "100%",
-          maxHeight: "170px",
+          height: "auto",
+          minHeight: "100px",
           backgroundColor: "#006766",
           borderRadius: "10px",
           color: "white",

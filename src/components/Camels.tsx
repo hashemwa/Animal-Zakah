@@ -120,7 +120,11 @@ export function CamelsZakah() {
 
     const numericValue = parseInt(value.replace(/,/g, ""));
 
-    if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 1000000) {
+    if (
+      !isNaN(numericValue) &&
+      numericValue >= 0 &&
+      numericValue <= 1000000000
+    ) {
       setNumCamels(formatNumber(numericValue));
       setErrorMessage("");
     } else if (value === "") {
@@ -134,7 +138,7 @@ export function CamelsZakah() {
     if (isNaN(parsedNumCamels) || parsedNumCamels < 0) {
       setZakahResult("");
       setErrorMessage("Enter a valid number of camels!");
-    } else if (parsedNumCamels >= 1000000) {
+    } else if (parsedNumCamels >= 1000000000) {
       setZakahResult("No one has that many camels...");
       setErrorMessage("");
     } else {
@@ -188,8 +192,8 @@ export function CamelsZakah() {
           mt: 2,
           width: "80%",
           textAlign: "center",
-          height: "100%",
-          maxHeight: "170px",
+          height: "auto",
+          minHeight: "100px",
           backgroundColor: "#006766",
           borderRadius: "10px",
           color: "white",
