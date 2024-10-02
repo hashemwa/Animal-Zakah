@@ -20,15 +20,14 @@ function App() {
       >
         <Card
           sx={{
-            width: "100%",
-            maxWidth: "500px",
-            height: "700px",
+            width: { xs: "100vw", sm: "500px" },
+            height: { xs: "100vh", sm: "700px" },
             backgroundColor: "white",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            m: 1,
-            boxShadow: 3,
+            boxShadow: { xs: 0, sm: 3 },
+            borderRadius: { xs: 0, sm: "10px" },
           }}
         >
           <Typography

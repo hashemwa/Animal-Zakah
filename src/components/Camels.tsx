@@ -189,6 +189,7 @@ export function CamelsZakah() {
           width: "80%",
           textAlign: "center",
           height: "100%",
+          maxHeight: "170px",
           backgroundColor: "#006766",
           borderRadius: "10px",
           color: "white",
