@@ -1,25 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import { CamelsZakah } from "./components/Camels";
+import { CowsZakah } from "./components/Cows";
+import { SheepZakah } from "./components/Sheep";
+import { Nav } from "./components/Nav";
+import { Box, Card, Typography } from "@mui/material";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <BrowserRouter>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Card
+          sx={{
+            width: "100%",
+            maxWidth: "500px",
+            height: "700px",
+            backgroundColor: "white",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            m: 1,
+            boxShadow: 3,
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Typography
+            variant="h4"
+            component="div"
+            sx={{
+              fontWeight: "700",
+              backgroundColor: "#006766",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              p: 3,
+              color: "white",
+            }}
+          >
+            Animal Zakah
+          </Typography>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<CamelsZakah />} />
+            <Route path="/cows" element={<CowsZakah />} />
+            <Route path="/sheep" element={<SheepZakah />} />
+          </Routes>
+        </Card>
+      </Box>
+    </BrowserRouter>
   );
 }
 
