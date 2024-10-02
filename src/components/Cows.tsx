@@ -14,7 +14,7 @@ import {
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
 export function CowsZakah() {
-  const [numCows, setNumCows] = useState<string>(""); // Changed to string for input formatting
+  const [numCows, setNumCows] = useState<string>("");
   const [zakahResult, setZakahResult] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -28,7 +28,7 @@ export function CowsZakah() {
 
   const calculateZakah = (numCows: number): string => {
     let zakahResult = "N/A";
-    numCows = Math.floor(numCows / 10) * 10; // Round down to nearest multiple of 10
+    numCows = Math.floor(numCows / 10) * 10; 
 
     if (numCows < 30) {
       zakahResult = "Nothing";
@@ -71,7 +71,7 @@ export function CowsZakah() {
       )} Tabī's + ${formatNumberWithCommas(musinnahCount)} Musinnahs`;
     }
 
-    // Singular adjustments
+ 
     zakahResult = zakahResult
       .replace(/\b1 Tabī's\b/, "1 Tabī'")
       .replace(/\b1 Musinnahs\b/, "1 Musinnah");
@@ -82,32 +82,32 @@ export function CowsZakah() {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
-    // Remove commas for parsing to number
+
     const numericValue = parseInt(value.replace(/,/g, ""));
 
-    // Check if the parsed number is valid and within range
+
     if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 10000000) {
-      setNumCows(formatNumberWithCommas(numericValue)); // Format the value for display with commas
-      setErrorMessage(""); // Clear any error message on input
+      setNumCows(formatNumberWithCommas(numericValue)); 
+      setErrorMessage("");
     } else if (value === "") {
-      setNumCows(""); // Clear the input if empty
+      setNumCows("");
     }
   };
 
   const handleCalculateClick = () => {
-    const parsedNumCows = parseInt(numCows.replace(/,/g, "")); // Remove commas for calculation
+    const parsedNumCows = parseInt(numCows.replace(/,/g, "")); 
 
     if (isNaN(parsedNumCows) || parsedNumCows < 0) {
-      // Check for invalid input (NaN or negative)
-      setZakahResult(""); // Clear any previous zakah results
-      setErrorMessage("Enter a valid number of cows!"); // Set error message for invalid input
+  
+      setZakahResult(""); 
+      setErrorMessage("Enter a valid number of cows!");
     } else if (parsedNumCows >= 10000000) {
-      setZakahResult("No one has that many cows..."); // Set message for too many cows
-      setErrorMessage(""); // Clear any previous error messages
+      setZakahResult("No one has that many cows..."); 
+      setErrorMessage("");
     } else {
-      const result = calculateZakah(parsedNumCows); // Calculate zakah
-      setZakahResult(result); // Update the zakah result
-      setErrorMessage(""); // Clear any previous error messages
+      const result = calculateZakah(parsedNumCows); 
+      setZakahResult(result);
+      setErrorMessage("");
     }
   };
 
@@ -128,7 +128,7 @@ export function CowsZakah() {
           variant="outlined"
           slotProps={{
             htmlInput: {
-              inputMode: "numeric", // Use 'numeric' to show the number keyboard
+              inputMode: "numeric",
             },
           }}
           value={numCows}
@@ -136,7 +136,7 @@ export function CowsZakah() {
         />
         <Button
           variant="contained"
-          onClick={handleCalculateClick} // Call the calculation function here
+          onClick={handleCalculateClick}
           sx={{ marginBottom: "10px" }}
         >
           Calculate

@@ -14,7 +14,7 @@ import {
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
 export function SheepZakah() {
-  const [numSheep, setNumSheep] = useState<string>(""); // Changed to string for input formatting
+  const [numSheep, setNumSheep] = useState<string>("");
   const [zakahResult, setZakahResult] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -42,11 +42,10 @@ export function SheepZakah() {
       zakahResult = `${extraSheepGoats + 4} Sheep/Goats`;
     }
 
-    // Format result for large numbers
     if (numSheep >= 1000) {
       zakahResult =
         formatNumberWithCommas(parseInt(zakahResult.replace(/\D/g, ""))) +
-        " Sheep/Goats"; // This is a workaround to format numbers correctly
+        " Sheep/Goats";
     }
 
     return zakahResult;
@@ -55,32 +54,29 @@ export function SheepZakah() {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
-    // Remove commas for parsing to number
     const numericValue = parseInt(value.replace(/,/g, ""));
 
-    // Check if the parsed number is valid and within range
     if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 10000000) {
-      setNumSheep(formatNumberWithCommas(numericValue)); // Format the value for display with commas
-      setErrorMessage(""); // Clear any error message on input
+      setNumSheep(formatNumberWithCommas(numericValue));
+      setErrorMessage("");
     } else if (value === "") {
-      setNumSheep(""); // Clear the input if empty
+      setNumSheep("");
     }
   };
 
   const handleCalculateClick = () => {
-    const parsedNumSheep = parseInt(numSheep.replace(/,/g, "")); // Remove commas for calculation
+    const parsedNumSheep = parseInt(numSheep.replace(/,/g, ""));
 
     if (isNaN(parsedNumSheep) || parsedNumSheep < 0) {
-      // Check for invalid input (NaN or negative)
-      setZakahResult(""); // Clear any previous zakah results
-      setErrorMessage("Enter a valid number of sheep!"); // Set error message for invalid input
+      setZakahResult("");
+      setErrorMessage("Enter a valid number of sheep!");
     } else if (parsedNumSheep >= 10000000) {
-      setZakahResult("No one has that many sheep..."); // Set message for too many sheep
-      setErrorMessage(""); // Clear any previous error messages
+      setZakahResult("No one has that many sheep...");
+      setErrorMessage("");
     } else {
-      const result = calculateZakah(parsedNumSheep); // Calculate zakah
-      setZakahResult(result); // Update the zakah result
-      setErrorMessage(""); // Clear any previous error messages
+      const result = calculateZakah(parsedNumSheep);
+      setZakahResult(result);
+      setErrorMessage("");
     }
   };
 
@@ -101,7 +97,7 @@ export function SheepZakah() {
           variant="outlined"
           slotProps={{
             htmlInput: {
-              inputMode: "numeric", // Use 'numeric' to show the number keyboard
+              inputMode: "numeric",
             },
           }}
           value={numSheep}
@@ -109,7 +105,7 @@ export function SheepZakah() {
         />
         <Button
           variant="contained"
-          onClick={handleCalculateClick} // Call the calculation function here
+          onClick={handleCalculateClick}
           sx={{ marginBottom: "10px" }}
         >
           Calculate

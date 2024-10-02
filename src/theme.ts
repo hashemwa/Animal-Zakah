@@ -1,23 +1,23 @@
 // src/theme.ts
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 // Create a custom theme
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#006766', // Main color for primary theme
+      main: "#006766", // Main color for primary theme
     },
     secondary: {
-      main: '#ffffff', // Change this to your desired secondary color
+      main: "#ffffff", // Change this to your desired secondary color
     },
     background: {
-      default: '#f5f5f5', // Default background color
+      default: "#f5f5f5", // Default background color
     },
   },
   typography: {
     fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
+      "-apple-system",
+      "BlinkMacSystemFont",
       "'Segoe UI'",
       "'Roboto'",
       "'Oxygen'",
@@ -26,8 +26,8 @@ const theme = createTheme({
       "'Fira Sans'",
       "'Droid Sans'",
       "'Helvetica Neue'",
-      'sans-serif',
-    ].join(','),
+      "sans-serif",
+    ].join(","),
   },
 });
 

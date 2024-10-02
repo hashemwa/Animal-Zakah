@@ -90,7 +90,6 @@ export function CamelsZakah() {
       zakahResult = calculateZakahAmount250(num);
     }
 
-    // Singular adjustments
     if (zakahResult.endsWith("Sheep/Goats")) {
       zakahResult = zakahResult.replace("1 Sheep/Goats", "1 Sheep/Goat");
     }
@@ -119,32 +118,29 @@ export function CamelsZakah() {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
-    // Remove commas for parsing to number
     const numericValue = parseInt(value.replace(/,/g, ""));
 
-    // Check if the parsed number is valid and within range
     if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 1000000) {
-      setNumCamels(formatNumber(numericValue)); // Format the value for display with commas
-      setErrorMessage(""); // Clear any error message on input
+      setNumCamels(formatNumber(numericValue));
+      setErrorMessage("");
     } else if (value === "") {
-      setNumCamels(""); // Clear the input if empty
+      setNumCamels("");
     }
   };
 
   const handleCalculateClick = () => {
-    const parsedNumCamels = parseInt(numCamels.replace(/,/g, "")); // Remove commas for calculation
+    const parsedNumCamels = parseInt(numCamels.replace(/,/g, ""));
 
     if (isNaN(parsedNumCamels) || parsedNumCamels < 0) {
-      // Check for invalid input (NaN or negative)
-      setZakahResult(""); // Clear any previous zakah results
-      setErrorMessage("Enter a valid number of camels!"); // Set error message for invalid input
+      setZakahResult("");
+      setErrorMessage("Enter a valid number of camels!");
     } else if (parsedNumCamels >= 1000000) {
-      setZakahResult("No one has that many camels..."); // Set message for too many camels
-      setErrorMessage(""); // Clear any previous error messages
+      setZakahResult("No one has that many camels...");
+      setErrorMessage("");
     } else {
-      const result = calculateZakah(parsedNumCamels); // Calculate zakah
-      setZakahResult(result); // Update the zakah result
-      setErrorMessage(""); // Clear any previous error messages
+      const result = calculateZakah(parsedNumCamels);
+      setZakahResult(result);
+      setErrorMessage("");
     }
   };
 
@@ -165,7 +161,7 @@ export function CamelsZakah() {
           variant="outlined"
           slotProps={{
             htmlInput: {
-              inputMode: "numeric", // Use 'numeric' to show the number keyboard
+              inputMode: "numeric",
             },
           }}
           value={numCamels}
