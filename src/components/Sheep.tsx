@@ -56,7 +56,11 @@ export function SheepZakah() {
 
     const numericValue = parseInt(value.replace(/,/g, ""));
 
-    if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 1000000000) {
+    if (
+      !isNaN(numericValue) &&
+      numericValue >= 0 &&
+      numericValue <= 1000000000
+    ) {
       setNumSheep(formatNumberWithCommas(numericValue));
       setErrorMessage("");
     } else if (value === "") {
@@ -153,14 +157,14 @@ export function SheepZakah() {
           onClick={toggleDrawer}
           onKeyDown={toggleDrawer}
           style={{
-            padding: "20px",
+            padding: "50px 20px",
           }}
         >
           <List
             sx={{
               zIndex: 5,
               color: "text.secondary",
-              backgroundColor: "#f6f6f6",
+              backgroundColor: "#f5f5f5",
               borderRadius: "10px",
             }}
           >
@@ -175,7 +179,7 @@ export function SheepZakah() {
             sx={{
               zIndex: 5,
               color: "text.secondary",
-              backgroundColor: "#f6f6f6",
+              backgroundColor: "#f5f5f5",
               borderRadius: "10px",
               mt: 2,
             }}

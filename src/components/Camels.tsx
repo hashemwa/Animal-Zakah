@@ -221,14 +221,14 @@ export function CamelsZakah() {
           onClick={toggleDrawer}
           onKeyDown={toggleDrawer}
           style={{
-            padding: "20px",
+            padding: "50px 20px",
           }}
         >
           <List
             sx={{
               zIndex: 5,
               color: "text.secondary",
-              backgroundColor: "#f6f6f6",
+              backgroundColor: "#f5f5f5",
               borderRadius: "10px",
             }}
           >
@@ -261,7 +261,7 @@ export function CamelsZakah() {
             sx={{
               zIndex: 5,
               color: "text.secondary",
-              backgroundColor: "#f6f6f6",
+              backgroundColor: "#f5f5f5",
               borderRadius: "10px",
               mt: 2,
             }}
